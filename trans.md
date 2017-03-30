@@ -40,4 +40,4 @@ Due to transmission delays in a network, it is impossible to reach a global agre
 
 As a result, the various algorithms employed in a distributed ledger can only attempt to make all parties in the network agree on what (for short time intervals) is essentially an arbitrary ordering of the transactions. In the period between the broadcast of a Bitcoin transaction and its being processed by the network, for example, there are typically no guarantees offered with regards to its order relative to other transactions in the same state or to what timestamp the transaction will eventually be assigned.
 
-所以，
+所以，目前应用于分布式账本系统中的各种算法仅仅能让网络中各方（在一小段时间内）在什么是交易无序上达成一致。比如，在比特币交易的发布到通过网络传输这段时间中，
