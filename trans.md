@@ -58,3 +58,11 @@ In a public distributed ledger system like the Bitcoin and Ethereum networks, tr
 
 在如比特币和以太坊为代表的公共分布式分类账本系统中，交易通过“矿机”（通常是高性能电脑）向对应区块中写入交易信息并收集每笔交易的费用进行。互联网上的矿机数量非常庞大，矿机写入的区是随机的，就有可能
 当一个交易发布后，它将通过网络推进并且存储在一个称为交易池的内存池中，矿机写入新的区块中的信息包含来自内存池中的交易。矿机根据配置重新排序或审查交易，在这个时候，空区（没有任何交易的区）也是完全合法的。这种行为，连同区块的少有的分裂，会导致在分布式账本技术中，交易的公布到其被确定分配相对于其他交易的顺序之间出现不可预见的延迟。如图1所示，在比特币中这类延迟达到了10分钟，但是由于没有一个理论上的上界所以这种延迟可能会更长。
+
+Most miners are agnostic to the content or source of transactions, and will seek to optimize their own returns by including as many transactions as they can in each block (thus collecting the fees). This category of miner will not have any incentive to manipulate the relative order of transactions, but neither will they have any interest of keeping them in any particular order. Thus, transactions containing conflicting orders may be shuffled around arbitrarily for a time period of multiple minutes.
+
+绝大部分矿机并不知道交易的内容和源头，它们会通过尽可能多地收集每个区块中的交易信息（收集费用）来优化返回内容。这类矿机不会改变交易的相对顺序，也不会让交易保持某种顺序。因此，顺序冲突的交易可能在几分钟之内被重新排序。
+
+Other miners, however, may have motivations beyond simply collecting transaction and block-fees. For example, they can decide to inspect the orders awaiting processing in the mempool, and then put in their own conflicting orders in front of the other orders. The fact that they can blame the resulting sequencing on network delays, which do occur in decentralized systems, makes this a tricky problem to fight. That most miners are anonymous only contributes to the difficulty of knowing whether such data snooping (and front-running) has actually occurred. What is clear is that there should be no expectation of privacy for broadcast data in a public distributed ledger.
+
+然而，其他矿机可能对简单收集交易和区块费用感兴趣。比如，它们可以监控时序，等待内存池中的进程，然后把它们自己冲突的序列提交到其他交易序列的前面。
