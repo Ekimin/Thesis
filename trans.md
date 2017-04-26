@@ -66,3 +66,7 @@ Most miners are agnostic to the content or source of transactions, and will seek
 Other miners, however, may have motivations beyond simply collecting transaction and block-fees. For example, they can decide to inspect the orders awaiting processing in the mempool, and then put in their own conflicting orders in front of the other orders. The fact that they can blame the resulting sequencing on network delays, which do occur in decentralized systems, makes this a tricky problem to fight. That most miners are anonymous only contributes to the difficulty of knowing whether such data snooping (and front-running) has actually occurred. What is clear is that there should be no expectation of privacy for broadcast data in a public distributed ledger.
 
 然而，其他矿机可能对简单收集交易和区块费用感兴趣。比如，它们可以监控时序，等待内存池中的进程，然后把它们自己冲突的序列提交到其他交易序列的前面。它们可以将结果序列归咎于网络延迟，这个情况确实在分散系统中存在，使得这个问题变得十分棘手。大多数的矿机是匿名的，这使得它们很难知道这种数据监听和前线运行是否正常。不过清楚的是，公共分布式分类账中不应有隐私的广播数据。
+
+>C. Transaction processing in leader driven decentralized systems
+
+C.
