@@ -44,7 +44,7 @@
 
 >Crucially, the content of any transaction (where we are using transaction in a broader sense to include events such as a trade, a quote, or indication of interest) that will be posted to  the distributed ledger will be observable by all or parts of the network in this potentially lengthy period. This visibility allows other participants to act upon the information carried in  the transaction before it has been processed and received a guaranteed ordering relative to other transactions. Depending on the algorithm employed, some participants may also be able to alter the relative ordering of transactions, arbitrarily and potentially to their own benefit. And, depending on the extent of these alterations, any changes can range from being undiscoverable to the rest of the network, to being probable but unprovable. Once the transaction has been processed by the network, it will be permanently stored and given a definitive place in the order sequence in the distributed ledger. Only at this point is it possible to offer the guarantee that no new transactions may end up with an earlier time priority than the original transaction.
 
-更重要地，将要在分布式账本系统中发布的交易（我们使用广泛意义上的交易来包含交易、引用、预购等等）内容在这一段潜在的漫长时间内变得对所有或者网络中的部分参与者可见，这就让其他参与者可以在交易得到证明之前根据交易信息进行操作。通过算法，参与者也可以修改交易的相关顺序，从而有意无意地增加自己的收益。根据这个修改的影响范围，任何改变都可以变得对其余网络不可见，可信但无法证明。一旦交易在网络中达成，它将被永久存储，并且在分布式系统中分配一个绝对序号。只有在这个时候才能保证新的交易不会在原交易之前完成。
+更重要地，将要在分布式账本系统中发布的交易（我们使用广泛意义上的交易来包含交易、引用、预购等等）内容在这一段潜在的漫长时间内变得对所有或者网络中的部分参与者可见，这就让其他参与者可以在交易得到验证之前根据交易信息进行操作。通过算法，参与者也可以修改交易的相关顺序，从而有意无意地增加自己的收益。根据这个修改的影响范围，任何改变都可以变得对其余网络不可见，可信但无法证明。一旦交易在网络中达成，它将被永久存储，并且在分布式系统中分配一个绝对序号。只有在这个时候才能保证新的交易不会在原交易之前完成。
 
 >The lack of time priority in the validation stage applies generally across distributed ledger settings, but its severity depends upon the validation process employed. In particular, public distributed ledgers and private distributed ledgers use different validation methods and, as we discuss below, these methods can affect the information leakage problem.
 
@@ -75,15 +75,15 @@ C. 领导人推动分散系统的交易进程
 distributed ledger systems. In such systems (examples include Symbiont Assembly or Axoni),
 an elected leader is responsible for processing transactions. These leader-driven systems don’t necessarily operate on blocks, but the transactions are written to a distributed ledger. Relative to Bitcoin, the delay between a transaction broadcast and it being written to the ledger is much shorter, often on the order of seconds for a global system. That’s still more than enough time for other participants on the network to broadcast their own transactions with conflicting orders in them.
 
-相比在公共分配帐上面的描述，还可以有私人分布式总账系统。在这样的系统中（如共生体装配或axoni），选出的领导人负责处理交易。这些领导者驱动的系统不一定在块上运行，但事务被写入分布式的分类帐。相对于比特币，一个事务广播和它被写入到分类帐之间的延迟要短得多，在一个全球性的系统中，这个延迟往往只有秒级。对于在网络上的其他参与者，这个时间对于广播他们自己的交易到冲突的订单中仍然足够。
+相比在公共分配帐上面的描述，还可以有私人分布式总账系统。在这样的系统中（如Symbiont Assembly或axoni），选出的领导人负责处理交易。这些领导者驱动的系统不一定在区块上运行，但事务被写入分布式的分类帐。相对于比特币，一个事务广播和它被写入到分类帐之间的延迟要短得多，在一个全球性的系统中，这个延迟往往只有秒级。对于在网络上的其他参与者，这个时间对于广播他们自己的交易到冲突的订单中仍然足够。
 
 >Like Bitcoin miners, the leader has a great degree of freedom in how to order transactions relative to each other. Indeed, the problem is exacerbated by the fact that the leader in this kind of system knows ahead of time that it is the one responsible for writing transactions to the ledger, and can plan accordingly. By the rules of such systems, only when a transaction is outright censored or delayed for a long period of time (several seconds) does a leader-election algorithm kick in and change the system over to a different leader. As in Bitcoin, any leader has no obligation to order transactions in the order it received them, and network delays can make the perceived order different for different observers, making it difficult to prove suspected willful reordering.
 
-像比特币矿机一样,领导者在彼此如何订单交易有很大的自由度。事实上,这加剧了这样一个事实，即这种系统的领导者提前知道，它是一个负责写交易的分类帐，并可以据此计划。通过这种系统的规则,只有当一个交易是彻底审查或延迟了很长一段时间（几秒钟）领导者选取算法才开始生效并改变系统的领导者。与比特币一样，任何领导者都没有义务按照其收到的订单来进行交易，而网络延迟会使不同的观察者的认知顺序不同，因此很难证明是有意的重新排序。
+像比特币矿机一样,领导者在彼此如何订单交易有很大的自由度。事实上,这加剧了这样一个事实，即这种系统的领导者提前知道，它是一个负责写交易的分类帐，并可以据此计划。通过这种系统的规则,只有当一个交易是彻底审查或延迟了很长一段时间（几秒钟）领导者选取算法才开始生效并改变系统的领导者。和比特币一样，任何领导者都没有义务按照其收到的订单来进行交易，而网络延迟会使不同的观察者的认知顺序不同，因此很难证明其是有意的重新排序。
 
 >D. Distributed systems and time
 
-分布式系统和时间
+D.分布式系统和时间
 
 >The issues outlined above are due to two features of these systems: 1) they are decentralized, meaning no central authority can force miners or leaders respectively to process transactions in a particular order, and 2) they are distributed, meaning that the nodes making up the system are distributed geographically, and due to network delays may receive transactions in a different order. Systems that are distributed, but have a central authority managing them, can achieve much better performance. But even this category of systems will be unable to preserve correct ordering globally for transactions happening near each other in time. For example, Google’s “TrueTime” system can guarantee relative ordering of events that happen at least 7 milliseconds (ms) apart globally but for events happening closer in time, the actual ordering cannot be guaranteed. This lack of time priority sets the stage for information leakage and potential front-running in distributed ledgers.
 
@@ -95,11 +95,11 @@ an elected leader is responsible for processing transactions. These leader-drive
 
 >The basic problem to be solved is straightforward: remove the ability of miners or leaders to profit from trading on the information in your transaction. Once your transaction has been written to the distributed ledger, the problem is largely ameliorated, but it is in the preceding processing stage that information leakage can occur. So a natural starting point for a solution is to consider changes to how this initial processing takes place, with the aim of establishing strict time priority for transactions.
 
-需要解决的这个基本问题很简单:删除矿机或领导者从交易中的信息交易的获得利润的能力。一旦您的事务已写入到分布式分类帐，问题在很大程度上可以得到改善，但在前面的阶段，仍然会发生信息泄漏。因此，解决方案的一个自然出发点是考虑如何改变初始化过程，目的是为事务建立严格的时间优先级。
+需要解决的这个基本问题很简单:删除矿机或领导者从交易中获得利益的能力。一旦您的事务已写入到分布式分类帐，问题在很大程度上可以得到改善，但正是在前面的阶段，会发生信息泄漏。因此，解决方案的一个自然出发点是考虑如何改变初始化过程，目的是为事务建立严格的时间优先级。
 
 >Our proposal as applied to a financial market involves two steps. First, the details of an order are run through a cryptographic hash function (discussed in detail below), producing an identifier mathematically linked to the order, but not exposing any details of the order itself,other than the fact that some trade is desired.Broadcasting that hash value and waiting for it to be processed by the system will reserve an order’s time priority. Once the priority has been secured, the order itself is broadcast. At this stage, the information leakage is not of any concern as all involved markets will recognize the relationship between the order and its corresponding hash value, thus executing them at the reserved time priority. We now turn to specifying this process in more detail at a heuristic level, with more explanation given in the Appendix.
 
-我们应用到金融市场的建议包含两个步骤。首先，一个订单的详细信息会通过加密哈希函数（后文详述），产生一个基于顺序的数学标识符，但不暴露除了特定需求的交易信息之外的其他任何细节。广播哈希值并等待系统处理，将保留订单的时间优先级。一旦优先权得到保障，订单本身就会被广播。在这个阶段，我们不用担心信息泄露，因为所有相关市场都清楚订单和相应的哈希值之间的关系，从而可以按照保留的时序处理它们。现在我们将在一个启发式的层次上更详细地指定这个过程，并在附录中给出更多的解释。
+我们应用到金融市场的方案包含两个步骤。首先，一个订单的详细信息会通过加密哈希函数（后文详述），产生一个基于顺序的数学标识符，但不暴露除了特定需求的交易信息之外的其他任何细节。广播哈希值并等待系统处理，将保留订单的时间优先级。一旦优先权得到保障，订单本身就会被广播。在这个阶段，我们不用担心信息泄露，因为所有相关市场都清楚订单和相应的哈希值之间的关系，从而可以按照保留的时序处理它们。现在我们将在一个启发式的层次上更详细地指定这个过程，并在附录中给出更多的解释。
 
 >A. Cryptographic hashes - the transaction’s fingerprint
 
@@ -168,4 +168,4 @@ An important feature of this process is that it entails a general delay in the e
 
 >We have shown one way to solve the problem of information leakage by using a cryptographic hash function to reserve a transaction’s time priority, and then once this is established following with a second message giving the order’s details. In effect, we are using an order’s “fingerprint” to hide its “footprint” in the distributed ledger. We believe this is an innovative approach to dealing with information leakage in a distributed ledger setting. Our paper shows how a cryptology-based trading mechanism may play a role in facilitating trading in distributed ledger markets.
 
-我们展示了一种解决信息泄漏的方法，通过使用加密哈希函数保留交易的时间优先级，一旦这个优先级确立后，再给出了交易的细节。实际上，我们使用订单的“指纹”来隐藏它在分布式分类帐中的“足迹”。我们相信这是一个可以解决分布式账本技术中信息泄露的具有创新性的方法。我们的文章显示了在分布式账本技术市场中，一个基于密码学的交易机制是怎样促进交易进行的。
+我们展示了一种解决信息泄漏的方法，通过使用加密哈希函数保留交易的时间优先级，一旦这个优先级确立后，再给出了交易的细节。实际上，我们使用订单的“指纹”来隐藏它在分布式分类帐中的“足迹”。我们相信这是一个可以解决分布式账本技术中信息泄露的具有创新性的方法。我们的文章阐述了在分布式账本技术市场中，一个基于密码学的交易机制是怎样促进交易进行的。
